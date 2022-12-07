@@ -7,8 +7,11 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
 
+    // Holding the current player
     public string currentPlayerName;
+    // Holding the player with the highest score
     public string playerName;
+    // Holding the High Score
     public int hiScore;
 
     private void Awake()
@@ -33,6 +36,7 @@ public class SaveManager : MonoBehaviour
         public int hiScore;
     }
 
+    // Saves the latest player, highest score and the player with the highest score
     public void SaveHiScore()
     {
         SaveData data = new SaveData();
@@ -45,6 +49,7 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
+    // Loads the latest player, highest score and the player with the highest score
     public void LoadHiScore()
     {
         string path = Application.persistentDataPath + "/savefile.json";
@@ -58,26 +63,4 @@ public class SaveManager : MonoBehaviour
             currentPlayerName = data.currentPlayerName;
         }
     }
-
-    //public void SaveLastPlayer()
-    //{
-    //    SaveData data = new SaveData();
-    //    data.currentPlayerName = currentPlayerName;
-
-    //    string json = JsonUtility.ToJson(data);
-
-    //    File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-    //}
-
-    //public void LoadLastPlayer()
-    //{
-    //    string path = Application.persistentDataPath + "/savefile.json";
-    //    if (File.Exists(path))
-    //    {
-    //        string json = File.ReadAllText(path);
-    //        SaveData data = JsonUtility.FromJson<SaveData>(json);
-
-    //        currentPlayerName = data.currentPlayerName;
-    //    }
-    //}
 }

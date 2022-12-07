@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1287989695}
+  hiScoreText: {fileID: 1261951495}
   nameInput: 
-  hiScore: 0
 --- !u!1 &503788115
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +717,6 @@ GameObject:
   - component: {fileID: 1261951494}
   - component: {fileID: 1261951496}
   - component: {fileID: 1261951495}
-  - component: {fileID: 1261951497}
   m_Layer: 5
   m_Name: High Score Text
   m_TagString: Untagged
@@ -842,19 +841,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261951493}
   m_CullTransparentMesh: 1
---- !u!114 &1261951497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261951493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dedf1467683413999f052534eac173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hiScoreText: {fileID: 1261951495}
 --- !u!1 &1287989691
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Displays the current High Score
         highScoreText.text = "High Score: " + SaveManager.Instance.playerName + " : " + SaveManager.Instance.hiScore;
 
         const float step = 0.6f;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
 
+        // When the game ends, if there is a new High Score, then update the overall High Score
         if (m_Points > SaveManager.Instance.hiScore)
         {
             SaveManager.Instance.playerName = SaveManager.Instance.currentPlayerName;
