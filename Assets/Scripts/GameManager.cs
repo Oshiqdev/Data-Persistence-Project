@@ -4,24 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text highScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
-    private int m_Points;
+    public int m_Points;
     
     private bool m_GameOver = false;
+
+    public string playerName;
+    public string currentPlayerName;
+    public int hiScore;
 
     
     // Start is called before the first frame update
     void Start()
     {
+        highScoreText.text = "High Score: " + SaveManager.Instance.playerName + " : " + SaveManager.Instance.hiScore;
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -72,5 +79,12 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (m_Points > SaveManager.Instance.hiScore)
+        {
+            SaveManager.Instance.playerName = SaveManager.Instance.currentPlayerName;
+            SaveManager.Instance.hiScore = m_Points;
+            SaveManager.Instance.SaveHiScore();
+        }
     }
 }
